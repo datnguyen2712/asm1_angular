@@ -1,0 +1,199 @@
+<header style="margin-bottom: 2rem;">
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div>
+        <div class="list-group list-group-flush mx-3 mt-4">
+            <a
+            href="#"
+            class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center h5"
+            aria-current="true"
+            >
+            <i class="fa fa-home"></i><strong>Trang chủ</strong>
+            </a>
+            <!--  -->
+            <div class="dropdown">
+                <a class="dropdown-toggle list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-list"></i><span>Quản lý dự án</span>
+                </a>
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" routerLink="/du_an/them">Thêm dự án</a></li>
+                  <li><a class="dropdown-item" href="#" routerLink="/du_an">Danh sách dự án</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-toggle list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-list"></i><span>Quản lý nhân viên</span>
+                </a>
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" routerLink="/nhan_vien/them">Thêm nhân viên</a></li>
+                  <li><a class="dropdown-item" href="#" routerLink="/nhan_vien">Danh sách nhân viên</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-toggle list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-list"></i><span>Quản lý task</span>
+                </a>
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Thêm task</a></li>
+                  <li><a class="dropdown-item" href="#" routerLink="/task">Danh sách task</a></li>
+                </ul>
+            </div>
+            
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center"
+            >
+            </a
+            >
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center"
+            >
+           </a
+            >
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center">
+                <i class="fa fa-inbox"></i><span>Inbox</span>
+                </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center">
+                <i class="fa fa-circle"></i><span>Hỗ trợ</span>
+                </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center">
+                <i class="fa fa-gear"></i><span>Cài dặt</span>
+                </a>
+            <a href="#" routerLink="/" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center" 
+            ><i class="fa fa-arrow-left"></i><span>Đăng xuất</span></a
+              >
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+  </header>
+  <!--Main Navigation-->
+  
+  <!--Main layout-->
+  <main style="margin-top: 10px;">
+    <div class="container">
+        <div id="nv-list">
+            <p align="top" class="bg-success text-white fw-bold p-2 ">DANH SÁCH NHÂN VIÊN</p>
+            <table class="table table-bordered border border-dark-subtle">
+                <tr>
+                    <th class="p-2 px-2">
+                        <input type="checkbox" name="du-an" id="">
+                    </th>
+                    <th class="p-2">id</th>
+                    <th class="p-2">Họ tên</th>
+                    <th class="p-2">Ngày sinh</th>
+                    <th class="p-2">Giới tính</th>
+                    <th class="p-2">Địa chỉ</th>
+                    <th class="text-end p-2 px-2">Action</th>
+
+                </tr>
+                <tr *ngFor="let nv of list_nhan_vien">
+                    <td class="p-2 px-2">
+                        <input type="checkbox" name="" id="">
+                    </td>
+                    <td class="p-2">{{nv.id}}</td>
+                    <td class="p-2">{{nv.ho_ten}}</td>
+                    <td class="p-2">{{nv.ngay_sinh | date: 'dd/mm/yyyy'}}</td>
+                    <td class="p-2">{{nv.gioi_tinh == true ? 'Nam' : 'Nữ'}}</td>
+                    <td class="P-2"> {{nv.dia_chi}} </td>
+                    <td class="text-end p-2">
+                        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+  </main>
+  <!--Main layout-->
+
+<script>
+$(document).ready(function(){
+    // Activate tooltip
+    $('[data-toggle="tooltip"]').tooltip();
+    
+    // Select/Deselect checkboxes
+    var checkbox = $('table tbody input[type="checkbox"]');
+    $("#selectAll").click(function(){
+        if(this.checked){
+            checkbox.each(function(){
+                this.checked = true;                        
+            });
+        } else{
+            checkbox.each(function(){
+                this.checked = false;                        
+            });
+        } 
+    });
+    checkbox.click(function(){
+        if(!this.checked){
+            $("#selectAll").prop("checked", false);
+        }
+    });
+});
+</script>
+
+    <!-- Edit Modal HTML -->
+<div id="editEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header d-flex justify-content-between">						
+					<h4 class="modal-title">Sửa nhân viên</h4>
+					<button type="button" style="background-color: white; border: none;" class="close fs-3 inline-block" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<div class="form-group">
+						<label>Họ tên nhân viên</label>
+						<input type="text" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Ngày sinh</label>
+						<input type="date" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Giới tính</label> <br>
+						<input type="radio" name="gender" id="" required> Nam
+						<input type="radio" name="gender" id="" required> Nữ
+					</div>
+                    <div class="form-group">
+                        <label>Địa chỉ</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+					<input type="submit" class="btn btn-dark" value="Lưu lại">
+				</div>
+                
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteEmployeeModal" class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<form>
+				<div class="modal-header d-flex justify-content-between">						
+					<h4 class="modal-title">Xóa dự án</h4>
+					<button type="button" style="background-color: white; border: none;" class="close fs-3 inline-block" data-dismiss="modal" aria-hidden="true">&times;</button>
+				</div>
+				<div class="modal-body">					
+					<p>Bạn có chắc chắn muốn xóa nhân viên này không?</p>
+					<p class="text-danger"><small>Hành động này không thể được hoàn tác.</small></p>
+				</div>
+				<div class="modal-footer">
+					<input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+					<input type="submit" class="btn btn-danger" value="Xóa">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+

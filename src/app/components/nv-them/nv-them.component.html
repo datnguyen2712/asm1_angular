@@ -1,0 +1,122 @@
+<header style="margin-bottom: 2rem;">
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div>
+        <div class="list-group list-group-flush mx-3 mt-4">
+            <a
+            href="#"
+            class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center h5"
+            aria-current="true"
+            >
+            <i class="fa fa-home"></i><strong>Trang chủ</strong>
+            </a>
+            <!--  -->
+            <div class="dropdown">
+                <a class="dropdown-toggle list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-list"></i><span>Quản lý dự án</span>
+                </a>
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" routerLink="/du_an/them">Thêm dự án</a></li>
+                  <li><a class="dropdown-item" href="#" routerLink="/du_an">Danh sách dự án</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-toggle list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-list"></i><span>Quản lý nhân viên</span>
+                </a>
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" routerLink="/nhan_vien/them">Thêm nhân viên</a></li>
+                  <li><a class="dropdown-item" href="#" routerLink="/nhan_vien">Danh sách nhân viên</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="dropdown-toggle list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa fa-list"></i><span>Quản lý task</span>
+                </a>
+              
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Thêm task</a></li>
+                  <li><a class="dropdown-item" href="#" routerLink="/task">Danh sách task</a></li>
+                </ul>
+            </div>
+            
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center"
+            >
+            </a
+            >
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center"
+            >
+           </a
+            >
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center">
+                <i class="fa fa-inbox"></i><span>Inbox</span>
+                </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center">
+                <i class="fa fa-circle"></i><span>Hỗ trợ</span>
+                </a>
+            <a href="#" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center">
+                <i class="fa fa-gear"></i><span>Cài dặt</span>
+                </a>
+            <a href="#" routerLink="/" class="list-group-item list-group-item-action py-2 ripple d-flex gap-2 align-items-center" 
+            ><i class="fa fa-arrow-left"></i><span>Đăng xuất</span></a
+              >
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+  </header>
+  <!--Main Navigation-->
+  
+  <!--Main layout-->
+  <main style="margin-top: 10px;">
+    <div class="container">
+        <div id="du-an-them">
+        <section class="panel panel-default">
+            <div class="panel-heading"> 
+            <h3 class="panel-title">Thêm nhân viên</h3> 
+            </div> 
+            <div class="panel-body">
+                
+            <form action="designer-finish.html" class="form-horizontal" role="form">
+                <div class="form-group">
+                <label for="name" class="col-sm-3 control-label">Họ tên</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Họ tên">
+                </div>
+                </div> <!-- form-group // -->
+                <div class="form-group">
+                <label for="date" class="col-sm-3 control-label">Ngày sinh</label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" name="ngaysinh" id="ngaysinh">
+                </div>
+                </div> <!-- form-group // -->
+                <div class="form-group">
+                <label for="gender" class="col-sm-3 control-label">Giới tính</label>
+                <div class="col-sm-9">
+                    <input type="radio" name="gender" id="nam"> Nam 
+                    <input type="radio" name="gender" id="nu"> Nữ
+                </div>
+                </div> <!-- form-group // -->
+                <div class="form-group">
+                <label for="address" class="col-sm-3 control-label">Địa chỉ</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" id="address" placeholder="Địa chỉ"></textarea>
+                </div>
+                </div> <!-- form-group // -->
+                <hr>
+                <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-9">
+                    <button type="submit" class="btn btn-primary" routerLink="/nhan_vien">Thêm vào</button>
+                </div>
+                </div> <!-- form-group // -->
+            </form>
+                
+            </div><!-- panel-body // -->
+            </section><!-- panel// -->
+        </div>
+    </div>
+  </main>
+  <!--Main layout-->
+
